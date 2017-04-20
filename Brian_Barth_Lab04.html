@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Brian_Barth_Assignment4</title>
+  <style>
+    h1 {
+      font-size: 40px;
+      font-family: arial, sans-serif;
+      text-align: center;
+      text-shadow: 5px 5px 15px grey;
+      color: #25234F;
+    }
+    p {
+      font-size: 26px;
+      font-family: arial, sans-serif;
+      text-align: center;
+      text-shadow: 5px 5px 20px grey;
+      color: #25234F;
+      padding-top: 50px;
+    }
+    div {
+      padding-top: 100px;
+      border: 3px black solid;
+      border-style: ridge;
+      border-radius: 20px;
+      height: 280px;
+      margin: auto;
+      max-width: 1200px;
+      box-shadow: 10px 5px 15px grey;
+      background-color: #A4C2E5;
+    }
+    .center {
+      margin: auto;
+      width: 45%;
+      border: 3px solid #8885D3;
+      padding: 16px;
+      border-radius: 20px;
+      box-shadow: 5px 2px 7px grey;
+      border-style: double;
+    }
+  </style>
+  <script type="text/javascript">
+    function enter_temp ( t ) {
+      while (t == undefined || t == null || t == false) {
+        alert ("Please enter the temperature followed by the scale.  Example: 98.6F");
+        t = prompt ("Enter the temperature to be converted followed by the scale (F-Fahrenheit; C-Celsius): example: 98.6F.");
+      }
+      temp = t
+      return temp
+    }
+  </script>
+</head>
+<body>
+  <div>
+    <h1><span class="center">Temperature Converter</span></h1>
+    <p id="tempMessage"></p>
+  </div>
+  <script type="text/javascript">
+    var temp = prompt ("Enter the temperature to be converted followed by the scale (F-Fahrenheit; C-Celsius): example: 98.6F.");
+    enter_temp (temp)
+
+      var unit = temp.charAt(temp.length-1);
+      if (unit == "C") {
+      temp = parseInt(temp);
+      var conversion = (temp * 1.8) + 32
+      alert ("The converted temperature is " + conversion.toFixed(2) + " Fahrenheit.");
+      document.getElementById("tempMessage").innerHTML = "The converted temperature is: " + conversion.toFixed(2) + " Fahrenheit.";
+    }
+      else if (unit == "F") {
+      temp = parseInt(temp);
+      var conversion = (temp - 32) / 1.8
+      alert ("The converted temperature is " + conversion.toFixed(2) + " Celsius.");
+      document.getElementById("tempMessage").innerHTML = "The converted temperature is: " + conversion.toFixed(2) + " Celsius.";
+    }
+    else {
+      alert ("Next time you must enter capital C or captial F for the temperature scale.");
+      document.getElementById("tempMessage").innerHTML = "Invalid scale data.";
+    }
+  </script>
+</body>
+</html>
